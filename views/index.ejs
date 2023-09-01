@@ -18,9 +18,9 @@
                 <% if (locals.newItem){ %>
                 <% for (let i=0; i<newItem.length; i++){ %>
                 <li>
-                    <span><%= newItem[i] %></span>
+                    <span><%= newItem[i] %></span><%  %>
                     <form action="/delete" method="POST">
-                        <input type="hidden" name="id" value="">
+                        <input type="hidden" name="id" value="<%= i %>">
                         <button type="submit">-</button>
                     </form>
                 </li>
