@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+    <div class="left-container">
+        <div>My Day</div>
+        <!-- <div>Important</div> -->
+        <div>Task</div>
+    </div>
+    <div class="right-container">
+        <div class="right-container__header">
+            <h1>My To-Do List</h1>
+        </div>
+        <div class="right-container__body">
+            <form action="/add" method="POST">
+                <input type="text" name="item" placeholder="Add a new item" required>
+                <button type="submit">+</button>
+            </form>
+            <ul>
+                <% if (locals.newItem){ %>
+                <% for (let i=0; i<newItem.length; i++){ %>
+                <li>
+                    <span><%= newItem[i] %></span>
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="id" value="">
+                        <button type="submit">-</button>
+                    </form>
+                </li>
+                <% } %>
+                <%} else{ %>
+                <li>
+                    <span>Hit the + button to add a new item</span> 
+                </li>
+                <% } %>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<%- include("partials/footer.ejs") %>
+
+</body>
+</html>
