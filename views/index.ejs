@@ -1,9 +1,9 @@
 <%- include("partials/header.ejs") %>
 <div class="container">
-    <div class="left-container">
-        <div>My Day</div>
+    <a href="/"><div class="left-container">
+        <div>My Day</div></a>
         <!-- <div>Important</div> -->
-        <div>Task</div>
+       <a href="/tasks"> <div>Task</div></a>
     </div>
     <div class="right-container">
         <div class="right-container__header">
@@ -11,7 +11,7 @@
         </div>
         <div class="right-container__body">
             <form action="/add" method="POST">
-                <input type="text" name="item" placeholder="Add a new item" required>
+                <input type="text" name="item"  placeholder="Add a new item" required>
                 <button type="submit">+</button>
             </form>
             <ul>
@@ -19,17 +19,14 @@
                 <% for (let i=0; i<newItem.length; i++){ %>
                 <li>
                     <span><%= newItem[i] %></span><%  %>
-                    <form action="/delete" method="POST">
+                    <form action="/delete" method="post">
                         <input type="hidden" name="id" value="<%= i %>">
                         <button type="submit">-</button>
                     </form>
                 </li>
                 <% } %>
-                <%} else{ %>
-                <li>
-                    <span>Hit the + button to add a new item</span> 
-                </li>
-                <% } %>
+                <%}  %>
+                
             </ul>
         </div>
 

@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+<h1>Task To Do</h1>
+<ol>
+    <% if (locals.newItem){ %>
+    <% for (let i=0; i<newItem.length; i++){ %>
+    <li  class="tasks">
+        <span><%= newItem[i] %></span><%  %>
+        <form action="/delete" method="post">
+            <input type="hidden" name="id" value="<%= i %>">
+            <button type="submit">-</button>
+        </form>
+    </li>
+    <% } %>
+    <%}  %>
+    </ol>
+<%- include("partials/footer.ejs") %>

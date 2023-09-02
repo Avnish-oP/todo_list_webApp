@@ -57,3 +57,13 @@ body{
     flex-basis: 85vw;
     margin-left: 3vw;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+.tasks{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
