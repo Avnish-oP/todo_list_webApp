@@ -1,16 +1,36 @@
 <%- include("partials/header.ejs") %>
-<h1>Task To Do</h1>
-<ol>
-    <% if (locals.newItem){ %>
-    <% for (let i=0; i<newItem.length; i++){ %>
-    <li  class="tasks">
-        <span><%= newItem[i] %></span><%  %>
-        <form action="/delete" method="post">
-            <input type="hidden" name="id" value="<%= i %>">
-            <button type="submit">-</button>
-        </form>
-    </li>
-    <% } %>
-    <%}  %>
-    </ol>
+<main>
+    <div class="container">
+        <div class="left">
+            <div class="myday">
+                <a href="/"><p>My Day</p></a>
+            </div>
+            <div class="task">
+                <a href="/tasks"><p>Task</p></a>
+            </div>
+            
+        </div>
+        <div class="right">
+            <!-- <h1><%# new Date().toDateString() %></h1>
+            <form action="/" method="post">
+                <input type="text" name="task" placeholder="add task here">
+                <button type="submit">Add</button>
+            </form> -->
+            <div class="">
+                <ul>
+                    <% for(let i=0; i<tasks.length; i++) { %>
+                        <li class="list">
+                            <input class="check" type="checkbox" name="check" id="check">
+                            <span class="taskName"><%= tasks[i] %></span>
+                            <form class="btn" action="/task/delete" method="post">
+                                <input class="delete-check" type="button">
+                                <button class="btn" type="submit">delete</button>
+                            </form>
+                        </li>
+                    <% } %>
+                </ul>
+        </div>
+    </div>
+
+</main>
 <%- include("partials/footer.ejs") %>
